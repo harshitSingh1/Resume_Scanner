@@ -11,6 +11,12 @@ load_dotenv()
 # Configure Google Generative AI
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
+st.set_page_config(page_title="Career Ark - Resume Scanner", page_icon="logo.png")
+
+# Display logo and title
+st.image("logo.png", width=100)  # Adjust the width as needed
+st.title("Career Ark: Resume ATS Scanner 📄➡️🔍")
+
 # Function to estimate reading time
 def estimate_reading_time(text):
     words_per_minute = 200  # Average reading speed
@@ -78,7 +84,6 @@ if 'compare_qa_history' not in st.session_state:
     st.session_state.compare_qa_history = {}
 
 # Streamlit UI
-st.title("Resume ATS Scanner 📄➡️🔍")
 uploaded_file = st.file_uploader("Upload a Resume PDF file", type="pdf")
 
 add_job_description = st.checkbox("Add Job Description")
